@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Math_Test
 {
@@ -9,7 +9,7 @@ namespace Math_Test
             Random random = new Random();
             int counter = 0;
             int total = 0;
-            var completed = true;
+            var completed = false;
             float solution = 0;
             int operators = random.Next(1, 5);
             string oper = "";
@@ -50,7 +50,7 @@ namespace Math_Test
                 }
                 else
                 {
-                    Console.WriteLine("\n" + question);
+                    Console.WriteLine($"\n{question}");
 
                 }
                 float answer = Convert.ToSingle(Console.ReadLine());
@@ -63,7 +63,7 @@ namespace Math_Test
                     Console.WriteLine($"Correct! {num} {oper} {num2} is {solution}!\nScore => {counter}/{total}");
                     if (counter == 10)
                     {
-                        completed = false;
+                        completed = true;
                     }
                 }
                 else
@@ -73,8 +73,8 @@ namespace Math_Test
                     operators = random.Next(1, 5);
                     Console.WriteLine($"Not quite.\nScore => {counter}/{total}");
                 }
-            } while (completed);
-            if (!completed)
+            } while (!completed);
+            if (completed)
             {
                 Console.Clear();
                 Console.WriteLine($"Congratulations, you completed the math test!\nScore => {counter}/{total}");
